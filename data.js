@@ -33,6 +33,13 @@ const posts = [
     content: "I serpenti sono spesso vittime di una cattiva reputazione, considerati spaventosi e pericolosi. In realtà, molte specie sono animali docili e curiosi, che preferiscono evitare l'uomo piuttosto che attaccarlo. Superato l'ostacolo dell'alimentazione a base di topi congelati, diventano compagni silenziosi e affascinanti, capaci di esplorare con calma il loro ambiente. Alcuni, come il serpente del grano o il pitone reale, sono particolarmente adatti alla vita domestica grazie alla loro indole pacifica. Conoscendoli meglio, si scopre che i serpenti non sono creature da temere, ma esseri straordinari da rispettare e apprezzare.",
     tag: ["serpente", "mistero", "rettili"],
     image: '/img/serpente.jpg'
+  },
+  {
+    id: 6,
+    title: "Perchè non dovresti comprare un Pitone Reale Spider",
+    content: "I Pitoni Reali “Spider” sono una particolare morfologia ottenuta attraverso selezioni mirate. Il loro disegno a ragnatela li rende immediatamente riconoscibili e molto ricercati dagli appassionati. Tuttavia, dietro questa bellezza si nasconde un prezzo altissimo: un difetto genetico inevitabile che compromette la salute di ogni esemplare. Questa mutazione è infatti legata a gravi problemi neurologici, noti come wobble syndrome, che causano perdita di equilibrio, difficoltà nei movimenti e una qualità della vita ridotta. Non si tratta di un rischio eventuale: tutti i Pitoni Spider ne sono affetti. Nonostante ciò, molti allevatori continuano a riprodurli intenzionalmente per scopi commerciali, e non tutti gli acquirenti sono consapevoli delle conseguenze. È quindi fondamentale diffondere questa informazione e promuovere una scelta più etica e responsabile.",
+    tag: ["serpente", "pitone", "etica"],
+    image: '/img/pitone-spider.jpeg'
   }
 ];
 
