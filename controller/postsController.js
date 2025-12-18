@@ -40,10 +40,8 @@ function destroy(req, res) {
   if (index === -1) {
     return res.status(404).json({ error: 'no post found' });
   }
-  else {
-    posts.splice(index, 1);
-    console.log(posts);
-  }
+  posts.splice(index, 1);
+  console.log(posts);
   res.sendStatus(204);
 }
 
