@@ -35,7 +35,17 @@ function modify(req, res) {
 }
 
 function destroy(req, res) {
-  res.send('delete existing post')
+  const id = parseInt(req.params.id);
+  const index = posts.findIndex((post) => post.id === id);
+  if (index === -1) {
+    res.status(404).json({ error: 'no post found' });
+  }
+  else {
+    posts.splice(index, 1);
+    console.log(posts);
+
+  }
+  res.sendStatus(204);
 }
 
 
