@@ -38,12 +38,11 @@ function destroy(req, res) {
   const id = parseInt(req.params.id);
   const index = posts.findIndex((post) => post.id === id);
   if (index === -1) {
-    res.status(404).json({ error: 'no post found' });
+    return res.status(404).json({ error: 'no post found' });
   }
   else {
     posts.splice(index, 1);
     console.log(posts);
-
   }
   res.sendStatus(204);
 }
