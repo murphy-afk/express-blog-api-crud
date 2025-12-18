@@ -1,11 +1,16 @@
 import { posts } from "../data.js";
 
 function index(req, res) {
+  const tag = req.query.tag;
+  let filteredPosts = posts;
+  if (tag !== undefined) {
+    filteredPosts = posts.filter((post) => post.tag.includes(tag))
+  }
   const result = {
     info: {
-      count: posts.length,
+      count: filteredPosts.length,
     },
-    result: posts,
+    result: filteredPosts,
   }
   res.json(result)
 }
