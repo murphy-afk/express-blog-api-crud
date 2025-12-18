@@ -8,17 +8,7 @@ const router = express.Router();
 router.get('/', postsController.index)
 
 // SINGLE POST (SHOW)
-router.get('/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  if (isNaN(id)) {
-    res.json('invalid id')
-  }
-  else {
-    const post = posts.find((post) => post.id === id);
-    const result = post !== undefined ? post : 'no post found';
-    res.json(result);
-  }
-})
+router.get('/:id', postsController.show)
 
 // CREATE
 router.post('/', (req, res) => {
