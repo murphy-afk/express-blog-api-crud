@@ -22,10 +22,30 @@ function show(req, res) {
   res.json(post);
 }
 
+function create(req, res) {
+  res.send('create new post')
+}
+
+function update(req, res) {
+  res.send('update existing post')
+}
+
+function modify(req, res) {
+  res.send('modify existing post')
+}
+
+function destroy(req, res) {
+  res.send('delete existing post')
+}
+
 
 const controller = {
   index,
-  show
+  show,
+  create,
+  update,
+  modify,
+  destroy
 };
 
 export default controller
