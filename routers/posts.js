@@ -1,18 +1,11 @@
 import express from 'express';
 import { posts } from '../data.js'
+import postsController from '../controller/postsController.js'
 
 const router = express.Router();
 
 // INDEX
-router.get('/', (req, res) => {
-  const result = {
-    info: {
-      count: posts.length,
-    },
-    result: posts,
-  }
-  res.json(result)
-})
+router.get('/', postsController.index)
 
 // SINGLE POST (SHOW)
 router.get('/:id', (req, res) => {
