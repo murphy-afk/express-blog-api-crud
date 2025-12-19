@@ -81,7 +81,28 @@ function update(req, res) {
 }
 
 function modify(req, res) {
-  res.send('modify existing post')
+  const id = parseInt(req.params.id);
+  if (isNaN(id)) {
+    return res.status(400).json({ error: 'invalid ID' });
+  }
+  const modifiedPost = posts.find((post) => post.id === id);
+  if (modifiedPost === undefined) {
+    return res.status(404).json({ error: 'no post found' });
+  }
+  const data = req.body;
+  if (data.title !== undefined) {
+    modifiedPost.title = data.title;
+  }
+  if (data.content !== undefined) {
+    modifiedPost.content = data.content;
+  }
+  if (data.image !== undefined) {
+    modifiedPost.image = data.image;
+  }
+  if (data.tag !== undefined) {
+    modifiedPost.tag = data.tag;
+  }
+  res.status(200).json(modifiedPost)
 }
 
 function destroy(req, res) {
