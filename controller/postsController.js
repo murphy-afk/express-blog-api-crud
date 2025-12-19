@@ -28,7 +28,23 @@ function show(req, res) {
 }
 
 function create(req, res) {
-  res.send('create new post')
+  const data = req.body;
+  if (data.title === undefined
+    || data.title.length === 0
+    || data.content === undefined
+    || data.content.length === 0) {
+    return res.status(400).json('invalid data');
+  };
+  const newId = posts[posts.length - 1].id + 1;
+  const newPost = {
+    id: newId,
+    title: data.title,
+    content: data.content,
+    tag: data.tag,
+    image: data.image,
+  };
+  posts.push(newPost);
+  res.status(201).json(newPost);
 }
 
 function update(req, res) {
