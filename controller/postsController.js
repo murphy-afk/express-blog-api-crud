@@ -45,10 +45,39 @@ function create(req, res) {
   };
   posts.push(newPost);
   res.status(201).json(newPost);
+  // 201 OK created
 }
 
 function update(req, res) {
-  res.send('update existing post')
+  const id = parseInt(req.params.id);
+  if (isNaN(id)) {
+    return res.status(400).json({ error: 'invalid ID' });
+  }
+  const index = posts.findIndex((post) => post.id === id);
+  if (index === -1) {
+    return res.status(404).json({ error: 'no post found' });
+  }
+  const data = req.body;
+  if (data.title === undefined
+    || data.title.length === 0
+    || data.content === undefined
+    || data.content.length === 0
+    || data.image === undefined
+    || data.image.length === 0
+    || data.tag === undefined
+    || data.tag.length === 0) {
+    return res.status(400).json({ error: 'invalid data' });
+  };
+  const updatedPost = {
+    id: id,
+    title: data.title,
+    content: data.content,
+    tag: data.tag,
+    image: data.image,
+  }
+  posts[index] = updatedPost;
+  res.status(200).json(updatedPost)
+  // 200 OK
 }
 
 function modify(req, res) {
@@ -64,6 +93,7 @@ function destroy(req, res) {
   posts.splice(index, 1);
   console.log(posts);
   res.sendStatus(204);
+  // 204 no content
 }
 
 
