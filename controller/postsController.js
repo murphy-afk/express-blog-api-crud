@@ -40,8 +40,8 @@ function create(req, res) {
     id: newId,
     title: data.title,
     content: data.content,
-    tag: data.tag,
-    image: data.image,
+    tag: (data.tag !== undefined ? data.tag.join(',') : 'no tags'),
+    image: (data.image !== undefined ? data.image : 'no image available'),
   };
   posts.push(newPost);
   res.status(201).json(newPost);
