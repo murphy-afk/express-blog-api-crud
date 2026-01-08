@@ -1,5 +1,6 @@
-import express from 'express'; 
+import express from 'express';
 import postsRouter from "./routers/posts.js";
+import { notFound } from './middleware/notFound.js';
 
 const app = express();
 const port = 3006;
@@ -13,6 +14,8 @@ app.get('/', (req, res) => {
 
 app.use('/posts', postsRouter)
 
-app.listen(port, function () {
+app.use(notFound)
+
+app.listen(port, () => {
   console.log("Server is listening on port: " + port);
 });
